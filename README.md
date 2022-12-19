@@ -13,7 +13,7 @@ The repository is structured as follows:
 
 ## Installation
 
-## Front End 
+## Front End
 
 ### Prerequisites
 
@@ -25,5 +25,3 @@ The repository is structured as follows:
 ```bash
 npm i && npm start
 ```
-
-## Back End
