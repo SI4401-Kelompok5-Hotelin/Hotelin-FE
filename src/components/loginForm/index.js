@@ -2,13 +2,38 @@ import React, {useState} from 'react';
 import { HiArrowLeft, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import pana from "../../asset/pana.png";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const url = "http://127.0.0.1:8000/api/login";
+  const [data, setData] = useState([{}]);
+
+  function handle(e) {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  }
 
   const toggle = () => {
     setOpen(!open);
   };
+
+  function submit(e) {
+    e.preventDefault();
+    axios.post(url, data).then((res) => {
+      if (res.message === "Network Error") {
+        console.log(res);
+        alert("Periksa koneksi internet anda");
+      } else {
+        console.log(res);
+        navigate("/");
+      }
+    });
+  }
 
   return (
     <div className="bg-[#168AFF] w-screen h-screen flex justify-center items-center">
@@ -21,12 +46,18 @@ export default function LoginForm() {
           <input
             className="w-[479px] h-[58px] border-[3px] rounded-[10px] border-black mt-[25px] pl-3 placeholder:font-base placeholder:text-[20px]"
             placeholder="Masukkan email anda"
+            type="text"
+            id="email"
+            value={data.email}
+            onChange={(e) => handle(e)}
           />
           <input
             className="w-[479px] h-[58px] border-[3px] rounded-[10px] border-black mt-[25px] pl-3 placeholder:font-base placeholder:text-[20px]"
             placeholder="Masukkan password anda"
             type={open ? "text" : "password"}
             id="password"
+            onChange={(e) => handle(e)}
+            value={data.password}
           />
           <div className="absolute top-[428px] right-[850px] text-2xl">
             {open === false ? (
@@ -48,17 +79,20 @@ export default function LoginForm() {
 
             <h1 className="ml-[224px] font-semibold">Lupa Password</h1>
           </div>
-          <button className="w-[479px] h-[58px] bg-[#168AFF] rounded-lg text-white mt-[31px] font-bold text-[20px]">
+          <button className="w-[479px] h-[58px] bg-[#168AFF] rounded-lg text-white mt-[31px] font-bold text-[20px]" onClick={submit}>
             Masuk
           </button>
           <button className="w-[479px] h-[58px] border-black border-[3px] rounded-lg text-black mt-[31px] font-bold text-[20px] flex justify-center items-center">
             <FcGoogle className="w-[30px] h-[30px] mr-3" /> Masuk Lewat Google
           </button>
           <h1 className="flex justify-start ml-[136px] mt-[25px] text-base font-semibold">
-            Belum punya akun? <span className="text-[#168AFF]">Daftar</span>
+            Belum punya akun? <span className="text-[#168AFF] ml-2">Daftar</span>
           </h1>
         </div>
-        <img src={pana} className="w-[361.36px] h-[346.44px] mt-[188px] ml-[95px]" />
+        <img
+          src={pana}
+          className="w-[361.36px] h-[346.44px] mt-[188px] ml-[95px]"
+        />
       </div>
     </div>
   );

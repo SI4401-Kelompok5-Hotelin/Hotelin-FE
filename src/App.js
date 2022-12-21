@@ -7,17 +7,23 @@ import { ChakraProvider } from "@chakra-ui/react";
 // import Footer from "./components/footer";
 // import Card from "./components/card";
 import LoginForm from "./components/loginForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <ChakraProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginForm/>} />
+            <Route path="/" element="HOME" />
+          </Routes>
+        </BrowserRouter>
         {/* <Header />
         <Banner />
         <Card />
         <Rating />
         <Footer /> */}
-        <LoginForm />
       </ChakraProvider>
     </div>
   );
