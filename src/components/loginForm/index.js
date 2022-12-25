@@ -3,7 +3,7 @@ import { HiArrowLeft, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import pana from "../../asset/pana.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -24,7 +24,8 @@ export default function LoginForm() {
 
   function submit(e) {
     e.preventDefault();
-    axios.post(url, data).then((res) => {
+    axios.post(url, data
+      ).then((res) => {
       if (res.message === "Network Error") {
         console.log(res);
         alert("Periksa koneksi internet anda");
@@ -86,7 +87,7 @@ export default function LoginForm() {
             <FcGoogle className="w-[30px] h-[30px] mr-3" /> Masuk Lewat Google
           </button>
           <h1 className="flex justify-start ml-[136px] mt-[25px] text-base font-semibold">
-            Belum punya akun? <span className="text-[#168AFF] ml-2">Daftar</span>
+            Belum punya akun? <Link to="/register"><span className="text-[#168AFF] ml-2">Daftar</span></Link>
           </h1>
         </div>
         <img

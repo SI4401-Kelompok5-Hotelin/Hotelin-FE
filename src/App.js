@@ -8,6 +8,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 // import Card from "./components/card";
 import LoginForm from "./components/loginForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./pages/Regsiter";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <ChakraProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<LoginForm/>} />
             <Route path="/" element="HOME" />
           </Routes>
