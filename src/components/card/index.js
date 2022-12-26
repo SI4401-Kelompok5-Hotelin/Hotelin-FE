@@ -4,7 +4,7 @@ import { GrLocation } from "react-icons/gr";
 import { BsSearch } from "react-icons/bs";
 import { HiUserGroup } from "react-icons/hi";
 
-export default function Card() {
+export default function CardHotel() {
   return (
     <div className="absolute mt-[-50px]">
       <div className="card shadow h-[169px] flex justify-start w-[1086px] mx-52 rounded-[20px]">
