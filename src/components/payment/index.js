@@ -1,8 +1,12 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
+import Footer from "../footer";
+import Header from "../Navbar";
 
 export default function Payment() {
   return (
     <div>
+      <Header />
       <div className="flex justify-between">
         <div className="card w-[703px] h-[545px] shadow-xl m-20">
           <div className="card-body">
@@ -75,9 +79,11 @@ export default function Payment() {
         </div>
 
         <div className="card w-[386px] h-[1157px] shadow-xl m-20 rounded-[0px] bg-[#1788FB]">
-            <h2 className="text-white pt-[30px] font-bold">Hotelin.comPay</h2>
+          <h2 className="text-white pt-[30px] font-bold">Hotelin.comPay</h2>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
