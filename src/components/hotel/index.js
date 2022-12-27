@@ -1,9 +1,16 @@
 import React from "react";
 import Mulia from "../../asset/mulia.jpg";
+import { MdOutlineCoffeeMaker } from "react-icons/md";
+import { BiDrink } from "react-icons/bi";
+import { MdMonitor } from "react-icons/md";
+import { AiOutlineWifi } from "react-icons/ai";
+import { BsSafe } from "react-icons/bs";
+import Footer from "../footer";
+
 export default function Hotel() {
   return (
     <div>
-      <div className="min-h-screen min-w-screen bg-base-200">
+      <div className="min-h-screen min-w-screen ">
         <div className="flex flex-col lg:flex-row-reverse">
           <img src={Mulia} className="w-[1000px]"></img>
           <div>
@@ -94,7 +101,7 @@ export default function Hotel() {
             <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14">
               Tentang Kami
             </h2>
-            <p className="mb-5 text-[30px] pt-1">
+            <p className="mb-5 text-[20px] pt-1">
               Hotel Mulia Senayan, Jakarta menampilkan kamar-kamar luas yang
               memancarkan suasana elegan, lengkap dengan keramahan hangat khas
               Indonesia. The Suites di Hotel Mulia Senayan, Jakarta membanggakan
@@ -112,15 +119,83 @@ export default function Hotel() {
         </div>
       </div>
 
-      <div className="pt-[20px]">
+      <div className="mt-[-40px]">
         <div class="bg-white py-6 sm:py-8 lg:py-12">
           <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
             <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14">
-              Kamar Kami    
+              Kamar Kami
             </h2>
           </div>
         </div>
       </div>
+
+      <div className="card lg:card-side bg-base-100 shadow-xl mx-32 rounded-[1px] bg-[#efefef]">
+        <figure>
+          <img src={Mulia} className="w-[544px] h-[580px] "></img>
+        </figure>
+        <div className="card-body">
+          <h2 className="font-bold text-[35px] pt-[34px] text-justify">
+            Splendor City View
+          </h2>
+          <p className="text-[20px]">
+            {" "}
+            The Mulia Splendor rooms at our Jakarta luxury hotel encompasses{" "}
+            <br /> 48m2 and provides a tranquil retreat with enchanting views
+            and <br /> high-tech comforts. Fitted with a rain shower and a
+            bath-tub in the
+            <br /> spacious bathroom to help you unwind. Relax on the couch and
+            enjoy <br />
+            your favourite programme on the 48-inch High Definition LED TV or
+            <br /> check emails at the spacious desk with high speed Internet
+            access.
+          </p>
+          <div className="flex justify-between">
+            <div>
+              <h2 className="font-bold text-[35px] text-justify underline">
+                Room Amenities
+              </h2>
+              <div className="flex justify-between pt-[10px]">
+                <MdOutlineCoffeeMaker className="text-[30px]" />
+                <p className="text-[20px]">Pembuat kopi/teh</p>
+              </div>
+              <div className="flex justify-between pt-[10px]">
+                <BiDrink className="text-[30px]" />
+                <p className="text-[20px] mr-[85px]">Mini Bar</p>
+              </div>
+              <div className="flex justify-between pt-[10px]">
+                <MdMonitor className="text-[30px] " />
+                <p className="text-[20px] mr-[85px]">TV Kabel</p>
+              </div>
+              <div className="flex justify-between pt-[10px]">
+                <AiOutlineWifi className="text-[30px]" />
+                <p className="text-[20px] mr-[120px]">WiFi</p>
+              </div>
+              <div className="flex justify-between pt-[10px]">
+                <BsSafe className="text-[30px]" />
+                <p className="text-[20px] mr-[70px]">Berangkas</p>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-end font-bold text-[35px]">
+                Price
+              </h2>
+              <p className="font-bold text-[35px] pt-[10px]">IDR 2,000,000</p>
+              <p className="text-end font-bold ">Per Malam</p>
+              <p className="text-[#1788FB] font-bold text-end pt-[15px]">
+                Termasuk Pajak dan Biaya
+              </p>
+              <div className="card-actions justify-end pt-[30px]">
+                <button className="btn bg-[#1788FB]">Pesan Sekarang</button>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+      <br></br>
+      
+      <Footer />
     </div>
   );
 }

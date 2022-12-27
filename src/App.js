@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Regsiter";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
+import Payment from "./components/payment";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginForm />} />
 
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/hotel/1" element={<Detail />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>
