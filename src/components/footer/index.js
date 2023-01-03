@@ -3,7 +3,7 @@ import Logo from "../../asset/logo.png";
 export default function Footer() {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content bg-[#168AFF] h-[400px] text-white">
+      <footer className="footer p-10 bg-base-200 text-base-content bg-[#168AFF] w-screen h-[400px] text-white">
         <div>
           <img src={Logo} className="w-44"></img>
 
