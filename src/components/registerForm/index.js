@@ -40,7 +40,7 @@ export default function RegisterForm() {
   //           stateObj["konfpassword"] = input.konfpassword
   //             ? ""
   //             : error.konfpassword;
-  //         }
+  //          }
   //         break;
 
   //       case "konfpassword":
