@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer'
 import React from 'react'
 import { CgProfile } from 'react-icons/cg'
 export default function UpdateProfile() {
@@ -25,7 +24,7 @@ export default function UpdateProfile() {
             <input 
                 className='w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]'
                 placeholder=''
-                type='text'
+                type='number'
                 id='noHP'
             />
             <label for="alamat" className='flex justify-start mt-[18px]'>Alamat</label>
