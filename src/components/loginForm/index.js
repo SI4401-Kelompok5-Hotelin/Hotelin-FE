@@ -4,9 +4,11 @@ import { FcGoogle } from "react-icons/fc";
 import pana from "../../asset/pana.png";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 export default function LoginForm() {
   const navigate = useNavigate();
+  const toast = useToast();
   const [open, setOpen] = useState(false);
   const url = process.env.REACT_APP_API_ENDPOINT + "/login";
   const [data, setData] = useState([{}]);
@@ -38,11 +40,25 @@ export default function LoginForm() {
         } else if (res.data.user.type === "user") {
           console.log(res);
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", res.data.user);
+          localStorage.setItem("name", res.data.user.name);
+          localStorage.setItem("email", res.data.user.email);
+          localStorage.setItem("phone", res.data.user.phone);
+          localStorage.setItem("address", res.data.user.address);
+          toast({
+            title: "Login Success",
+            description: "You've logged in",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top-right",
+          });
           navigate("/");
         } else {
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", res.data.user);
+          localStorage.setItem("name", res.data.user.name);
+          localStorage.setItem("email", res.data.user.email);
+          localStorage.setItem("phone", res.data.user.phone);
+          localStorage.setItem("address", res.data.user.address);
           navigate("/admin");
         }
       });

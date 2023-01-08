@@ -6,6 +6,7 @@ import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const auth = localStorage.getItem("token");
+  const user = localStorage.getItem("name");
 
   return (
     <div className="navbar bg-base-100 container mb-8 mt-5">
@@ -55,7 +56,7 @@ export default function Header() {
                 <div className="flex items-center ml-4">
                   <CgProfile className="mr-4" />
                   <div className="bg-white text-[#1788fb] border-none">
-                    Wati Kasbon
+                    {user}
                   </div>
                 </div>
               </Link>
