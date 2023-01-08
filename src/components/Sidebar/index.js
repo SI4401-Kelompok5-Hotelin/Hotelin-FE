@@ -6,12 +6,14 @@ import logo from "../../asset/logo.png";
 
 export default function Sidebar() {
   const location = useLocation();
-  const user = localStorage.getItem("user");
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
   // const userObj = JSON.parse(user);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
   };
 
 
@@ -43,9 +45,9 @@ export default function Sidebar() {
         </div>
         <div className="w-16 lg:w-[250px] mx-auto">
           <Link
-            to="/dashboard/list-job-vacancy"
+            to="/listhotel"
             className={`flex flex-row items-center justify-center h-10 font-medium rounded lg:justify-start text-Info-Normal hover:bg-sky-500 hover:text-white active:bg-Primary-NormalActive ${
-              location.pathname === "/dashboard/list-job-vacancy" &&
+              location.pathname === "/listhotel" &&
               "bg-sky-500 text-white"
             }`}
           >
@@ -55,9 +57,9 @@ export default function Sidebar() {
         </div>
         <div className="w-16 lg:w-[250px] mx-auto">
           <Link
-            to="/dashboard/list-job-vacancy/create"
+            to="/addhotel"
             className={`flex flex-row items-center justify-center h-10 mb-5 font-medium rounded lg:justify-start text-Info-Normal hover:bg-sky-500 hover:text-white active:bg-Primary-NormalActive ${
-              location.pathname === "/dashboard/list-job-vacancy/create" &&
+              location.pathname === "/addhotel" &&
               "bg-sky-500 text-white"
             }`}
           >
@@ -75,10 +77,10 @@ export default function Sidebar() {
                 className="float-left w-10 h-10 ml-3 mr-3 rounded-full"
               />
               <p className="hidden text-sm font-medium lg:block">
-                ads
+                {name}
               </p>
               <p className="hidden text-sm font-medium text-Info-Normal lg:block">
-                ads
+                {email}
               </p>
             </div>
           </Link>

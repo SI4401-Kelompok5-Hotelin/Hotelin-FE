@@ -55,6 +55,7 @@ export default function UpdateProfile() {
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
           placeholder={name}
           onChange={(e) => handle(e)}
+          value={data.name}
           type="text"
           name="name"
           id="nama"
@@ -66,6 +67,7 @@ export default function UpdateProfile() {
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
           placeholder={email}
           onChange={(e) => handle(e)}
+          value={data.email}
           type="text"
           name="email"
           id="email"
@@ -77,6 +79,7 @@ export default function UpdateProfile() {
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
           placeholder={phone}
           onChange={(e) => handle(e)}
+          value={data.phone}
           type="number"
           name="phone"
           id="noHP"
@@ -88,6 +91,7 @@ export default function UpdateProfile() {
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
           placeholder={address}
           onChange={(e) => handle(e)}
+          value={data.address}
           type="text"
           name="address"
           id="alamat"
@@ -99,6 +103,7 @@ export default function UpdateProfile() {
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
           placeholder="New Password"
           onChange={(e) => handle(e)}
+          value={data.password}
           type="password"
           name="password"
           id="password"
