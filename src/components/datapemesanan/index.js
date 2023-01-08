@@ -1,8 +1,8 @@
 import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsCheck } from "react-icons/bs";
-import Footer from "../components/footer";
-import logo from "../asset/logo.png";
+import Footer from "../footer";
+import logo from "../../asset/logo.png";
 
 export default function DataPemesanan() {
   return (
