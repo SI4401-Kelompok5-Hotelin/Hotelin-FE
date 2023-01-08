@@ -1,13 +1,43 @@
 import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsCheck } from "react-icons/bs";
-import Header from "../components/Navbar";
 import Footer from "../components/footer";
+import logo from "../asset/logo.png";
 
 export default function DataPemesanan() {
   return (
     <div>
-      <Header />
+      <div>
+        <img src={logo} alt="logo" className="ml-[60px] mt-[19px]" />
+        <div className="absolute top-0 right-[202px] flex items-center mt-8">
+          <div className="text-white rounded-full flex items-center justify-center bg-[#53f8ff] w-[35px] h-[35px]">
+            1
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-Black-Normal">
+              Fill in data
+            </h1>
+          </div>
+          <div className="w-[40px] border-b-2 border-[#939393] border-slate-400 m-4"></div>
+          <div className="text-white rounded-full flex items-center justify-center bg-[#939393] w-[35px] h-[35px] ">
+            2
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-[#939393]">
+              Review
+            </h1>
+          </div>
+          <div className="w-[40px] border-b-2 border-[#939393] border-slate-400 m-4"></div>
+          <div className="text-white rounded-full flex items-center justify-center bg-[#939393] w-[35px] h-[35px] ">
+            3
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-[#939393]">
+              Payment
+            </h1>
+          </div>
+        </div>
+      </div>
       <div className="flex justify-between">
         <div className="mt-[118px]">
           <h1 className="font-bold text-[40px] text-start ml-[199px]">
@@ -40,10 +70,19 @@ export default function DataPemesanan() {
             <h1 className="ml-[32px] text-start tetx-[12px] mt-[16px] font-bold">
               Contact’s name
             </h1>
-            <input value="Wati Kasir" className="border-2 border-[#dedede] w-[350px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[4px] placeholder:text-[12px]" />
+            <input
+              value="Wati Kasir"
+              className="border-2 border-[#dedede] w-[350px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[4px] placeholder:text-[12px]"
+            />
             <div className="flex justify-between">
-              <input value="081368786670" className="border-2 border-[#dedede] w-[145px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[25px]" />
-              <input value="watikasir@gmail.com" className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] mr-[113px] rounded-[5px] mt-[25px]" />
+              <input
+                value="081368786670"
+                className="border-2 border-[#dedede] w-[145px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[25px]"
+              />
+              <input
+                value="watikasir@gmail.com"
+                className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] mr-[113px] rounded-[5px] mt-[25px]"
+              />
             </div>
             <p className="ml-[10px] text-[8px] mt-[6px] text-[#939393]">
               e.g.: example@gmail.com
