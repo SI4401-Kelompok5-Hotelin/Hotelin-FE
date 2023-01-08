@@ -27,6 +27,19 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/" element={<Home />} />
+            {/* <Route
+              path="/customerservice"
+              element
+              {...Redirect}
+              loc="wa.me/6285171110520"
+            /> */}
+            {/* <Route
+              path="/customerservice"
+              element={() => {
+                window.location.href = "wa.me/6285171110520";
+                return null;
+              }}
+            /> */}
             <Route exact path="/" element={<RequireAuth />}>
               <Route path="/hotel/1" element={<Detail />} />
               <Route path="/payment" element={<Payment />} />
