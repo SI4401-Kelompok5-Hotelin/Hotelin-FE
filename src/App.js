@@ -10,6 +10,7 @@ import Payment from "./components/payment";
 import Datapemesanan from "./pages/Datapemesanan";
 import Profile from "./pages/Profile";
 import HistoryBooking from "./pages/HistoryBooking";
+import DashboardAdmin from "./pages/DashboardAdmin";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/data" element={<Datapemesanan />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/history" element={<HistoryBooking />} />
+            <Route path="/admin" element={<DashboardAdmin />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>

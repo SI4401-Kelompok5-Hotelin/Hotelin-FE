@@ -1,5 +1,5 @@
 import React from 'react'
-import DataPemesanan from '../../datapemesanan'
+import DataPemesanan from '../../components/datapemesanan'
 
 export default function Datapemesanan() {
   return (
