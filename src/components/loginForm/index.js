@@ -111,9 +111,6 @@ export default function LoginForm() {
           <button className="w-[479px] h-[58px] bg-[#168AFF] rounded-lg text-white mt-[31px] font-bold text-[20px]" onClick={submit}>
             Masuk
           </button>
-          <button className="w-[479px] h-[58px] border-black border-[3px] rounded-lg text-black mt-[31px] font-bold text-[20px] flex justify-center items-center">
-            <FcGoogle className="w-[30px] h-[30px] mr-3" /> Masuk Lewat Google
-          </button>
           <h1 className="flex justify-start ml-[136px] mt-[25px] text-base font-semibold">
             Belum punya akun? <Link to="/register"><span className="text-[#168AFF] ml-2">Daftar</span></Link>
           </h1>

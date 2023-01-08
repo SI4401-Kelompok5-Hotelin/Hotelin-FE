@@ -44,7 +44,7 @@ export default function Header() {
         } else {
           return (
             <div className="flex items-center">
-              <Link to="/">
+              <Link to="/topup">
                 <div className="flex items-center">
                   <BiWallet className="mr-4" />
                   <div className="">
@@ -52,7 +52,7 @@ export default function Header() {
                   </div>
                 </div>
               </Link>
-              <Link to="/">
+              <Link to="/profile">
                 <div className="flex items-center ml-4">
                   <CgProfile className="mr-4" />
                   <div className="bg-white text-[#1788fb] border-none">
