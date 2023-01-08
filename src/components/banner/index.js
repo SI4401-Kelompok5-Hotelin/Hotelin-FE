@@ -3,7 +3,7 @@ import Rajaampat from "../../asset/rajawampat.jpg";
 export default function Banner() {
   return (
     <div
-      className=" hero h-[454px]  flex justify-start w-[1263px] mx-32 rounded-[20px]"
+      className=" hero h-[454px]  flex justify-start w-[1263px] mx-auto rounded-[20px]"
       style={{ backgroundImage: `url(${Rajaampat})` }}
     >
       <div className="hero-content text-left text-neutral-content">
