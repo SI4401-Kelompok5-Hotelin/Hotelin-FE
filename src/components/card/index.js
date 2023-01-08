@@ -40,16 +40,29 @@ export default function CardHotel() {
               </ul>
             </div>
           </div>
-
+          
           <div className="dropdown absolute mt-[-74px] left-64">
             <label
               tabIndex={0}
               className="btn m-1 w-[418px] h-[66px] bg-white text-[#444444] justify-start border-[#93939390] rounded-md outline-4 "
             >
               {" "}
-              <GrLocation className=" text-[#1788FB] " />
-              Check-In
-              <h1 className="text-[#939393] text-[10px]">Tanggal Check-In</h1>
+              <div className="flex justify-between">
+                <div className="text-start">
+                  <GrLocation className="  text-[#1788FB] " />
+                  Check-In
+                  <h2 className=" text-[#939393] text-[10px]">
+                    Tanggal Check-In
+                  </h2>
+                </div>
+                <div className="text-end">
+                  <GrLocation className="text-[#1788FB] " />
+                  Check-Out
+                  <h2 className="text-[#939393] text-[10px] text-end">
+                    Tanggal Check-Out
+                  </h2>
+                </div>
+              </div>
             </label>
 
             <ul

@@ -5,7 +5,10 @@ export default function Iklan() {
     <div>
       <div className="carousel mx-32  pt-[300px]">
         <div id="item1" className="carousel-item w-full">
-          <img src="https://placeimg.com/800/200/arch" className="w-full" />
+          <img
+            src="https://www.agoda.com/c/SuperWednesdayID?currency=idr&cid=1881733&platform=mobile"
+            className="w-full"
+          />
         </div>
         <div id="item2" className="carousel-item w-full">
           <img src="https://placeimg.com/800/200/arch" className="w-full" />

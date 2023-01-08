@@ -20,7 +20,7 @@ export default function Header() {
         <img src={Logo} className="w-44"></img>
       </div>
       <div className="navbar-center -mr-[35px]">
-          <button className="btn bg-[#1788FB] border-none h-[43px] w-[95px]">
+          <button className="btn bg-[#1788FB] border-none h-[43px] w-[95px] hover:bg-[#419EFD]">
             Log in
           </button>
 
