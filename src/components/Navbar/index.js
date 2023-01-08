@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <div className="navbar bg-base-100 container mb-8 mt-5">
-      <div className="navbar-lg gap-3 ml-[40px]">
+      <div className="navbar-lg gap-3">
         <Link to="/">
           <h1 className="font-bold text-black">Home</h1>
         </Link>
