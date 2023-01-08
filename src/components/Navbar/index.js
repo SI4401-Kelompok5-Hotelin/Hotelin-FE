@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../asset/logo.png";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { BiWallet } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
@@ -7,6 +8,18 @@ import { CgProfile } from "react-icons/cg";
 export default function Header() {
   const auth = localStorage.getItem("token");
   const user = localStorage.getItem("name");
+  const url = process.env.REACT_APP_API_ENDPOINT + "/balance";
+  const [data, setData] = React.useState([])
+
+  useEffect(() => {
+    axios
+      .get(url, {
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setData(res.data.balance)
+      });
+  }, []);
 
   return (
     <div className="navbar bg-base-100 container mb-8 mt-5">
@@ -44,15 +57,15 @@ export default function Header() {
         } else {
           return (
             <div className="flex items-center">
-              <Link to="/">
+              <Link to="/topup">
                 <div className="flex items-center">
                   <BiWallet className="mr-4" />
                   <div className="">
-                    Rp. 100.000
+                    <h1>Rp. {data}</h1>
                   </div>
                 </div>
               </Link>
-              <Link to="/">
+              <Link to="/profile">
                 <div className="flex items-center ml-4">
                   <CgProfile className="mr-4" />
                   <div className="bg-white text-[#1788fb] border-none">
