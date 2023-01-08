@@ -9,7 +9,9 @@ export default function Header() {
   const auth = localStorage.getItem("token");
   const user = localStorage.getItem("name");
   const url = process.env.REACT_APP_API_ENDPOINT + "/balance";
+  const url2 = process.env.REACT_APP_API_ENDPOINT + "/profile";
   const [data, setData] = React.useState([])
+  const [users, setUsers] = React.useState([]);
 
   useEffect(() => {
     axios
@@ -18,6 +20,16 @@ export default function Header() {
       })
       .then((res) => {
         setData(res.data.balance)
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(url2, {
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setUsers(res.data.data.name);
       });
   }, []);
 
@@ -69,7 +81,7 @@ export default function Header() {
                 <div className="flex items-center ml-4">
                   <CgProfile className="mr-4" />
                   <div className="bg-white text-[#1788fb] border-none">
-                    {user}
+                    {users}
                   </div>
                 </div>
               </Link>
