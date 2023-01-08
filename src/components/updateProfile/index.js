@@ -58,7 +58,7 @@ export default function UpdateProfile() {
           value={data.name}
           type="text"
           name="name"
-          id="nama"
+          id="name"
         />
         <label for="email" className="flex justify-start mt-[18px]">
           Email
@@ -82,7 +82,7 @@ export default function UpdateProfile() {
           value={data.phone}
           type="number"
           name="phone"
-          id="noHP"
+          id="phone"
         />
         <label for="alamat" className="flex justify-start mt-[18px]">
           Alamat
@@ -94,7 +94,7 @@ export default function UpdateProfile() {
           value={data.address}
           type="text"
           name="address"
-          id="alamat"
+          id="address"
         />
         <label for="password" className="flex justify-start mt-[18px]">
           New Password
