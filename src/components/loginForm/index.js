@@ -8,7 +8,7 @@ import { useNavigate, Link } from "react-router-dom";
 export default function LoginForm() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const url = process.env.REACT_APP_API_ENDPOINT + "/api/login";
+  const url = process.env.REACT_APP_API_ENDPOINT + "/login";
   const [data, setData] = useState([{}]);
 
   function handle(e) {
@@ -24,18 +24,28 @@ export default function LoginForm() {
 
   function submit(e) {
     e.preventDefault();
-    axios.post(url, data
-      ).then((res) => {
-      if (res.message === "Network Error") {
-        console.log(res);
-        alert("Periksa koneksi internet anda");
-      } else {
-        console.log(res);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", res.data.user)
-        navigate("/");
-      }
-    });
+    axios
+      .post(url, data, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+      })
+      .then((res) => {
+        if (res.message === "Network Error") {
+          console.log(res);
+          alert("Periksa koneksi internet anda");
+        } else if (res.data.user.type === "user") {
+          console.log(res);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.user);
+          navigate("/");
+        } else {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.user);
+          navigate("/admin");
+        }
+      });
   }
 
   return (
