@@ -6,7 +6,7 @@ import { HiUserGroup } from "react-icons/hi";
 
 export default function CardHotel() {
   return (
-    <div className="absolute mt-[-50px]">
+    <div className="absolute ml-[70px] -mt-[60px]">
       <div className="card shadow h-[169px] flex justify-start w-[1086px] mx-52 rounded-[20px]">
         <div className="">
           <div className="flex-auto max-w-4xl ">

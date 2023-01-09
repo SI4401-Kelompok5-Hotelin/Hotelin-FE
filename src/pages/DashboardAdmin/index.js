@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
+import TableListHotel from '../../components/tableListHotel'
 import TotalHotel from '../../components/totalHotel'
 
 export default function DashboardAdmin() {
@@ -8,6 +9,7 @@ export default function DashboardAdmin() {
       <Sidebar/>
       <div className='ml-[300px]'>
         <TotalHotel />
+        <TableListHotel />
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 
 
@@ -21,6 +21,10 @@ export default function UpdateProfile() {
         setData(newData);
         console.log(newData);
     }
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+    };
 
     function submit(e) {
       e.preventDefault();
@@ -115,6 +119,9 @@ export default function UpdateProfile() {
           >
             Change
           </button>
+          <Link to="/" >
+            <button onClick={handleLogout} className='btn bg-red-500 border-none hover:text-white text-white hover:bg-red-500'>Log Out</button>
+          </Link>
         </div>
       </div>
     </div>

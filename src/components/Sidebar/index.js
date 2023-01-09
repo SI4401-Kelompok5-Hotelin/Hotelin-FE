@@ -43,7 +43,7 @@ export default function Sidebar() {
         <div className="hidden mt-3 flex font-semibold lg:block">
           Data
         </div>
-        <div className="w-16 lg:w-[250px] mx-auto">
+        <div className="w-16 lg:w-[250px] mt-4 mx-auto">
           <Link
             to="/listhotel"
             className={`flex flex-row items-center justify-center h-10 font-medium rounded lg:justify-start text-Info-Normal hover:bg-sky-500 hover:text-white active:bg-Primary-NormalActive ${
@@ -55,7 +55,7 @@ export default function Sidebar() {
             <span className="hidden text-base lg:block">List Hotel</span>
           </Link>
         </div>
-        <div className="w-16 lg:w-[250px] mx-auto">
+        <div className="w-16 lg:w-[250px] mt-4 mx-auto">
           <Link
             to="/addhotel"
             className={`flex flex-row items-center justify-center h-10 mb-5 font-medium rounded lg:justify-start text-Info-Normal hover:bg-sky-500 hover:text-white active:bg-Primary-NormalActive ${
