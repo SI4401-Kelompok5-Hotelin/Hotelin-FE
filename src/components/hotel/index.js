@@ -5,6 +5,16 @@ import { BiDrink } from "react-icons/bi";
 import { MdMonitor } from "react-icons/md";
 import { AiOutlineWifi } from "react-icons/ai";
 import { BsSafe } from "react-icons/bs";
+import { MdOutlineAir } from "react-icons/md";
+import { CgSmartHomeRefrigerator } from "react-icons/cg";
+import { MdOutlineRestaurant } from "react-icons/md";
+import { RiBilliardsLine } from "react-icons/ri";
+import { FaSwimmingPool } from "react-icons/fa";
+import { FaParking } from "react-icons/fa";
+import { BsTelephone } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
+
 import Footer from "../footer";
 
 export default function Hotel() {
@@ -176,9 +186,7 @@ export default function Hotel() {
               </div>
             </div>
             <div>
-              <h2 className="text-end font-bold text-[35px]">
-                Price
-              </h2>
+              <h2 className="text-end font-bold text-[35px]">Price</h2>
               <p className="font-bold text-[35px] pt-[10px]">IDR 2,000,000</p>
               <p className="text-end font-bold ">Per Malam</p>
               <p className="text-[#1788FB] font-bold text-end pt-[15px]">
@@ -189,12 +197,97 @@ export default function Hotel() {
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
       <br></br>
-      
+      <div className="mt-[-40px]">
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+          <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
+            <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14 underline">
+              Fasilitas
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="flex w-[184px] h-[124px] m-8 rounded-[5px]">
+          <MdOutlineAir className="text-[70px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">AC</p>
+        </div>
+        <div className=" flex w-[184px] h-[124px] m-8 rounded-[5px]">
+          <AiOutlineWifi className="text-[70px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">WiFi</p>
+        </div>
+        <div className=" flex w-[184px] h-[124px] m-8 rounded-[5px]">
+          <CgSmartHomeRefrigerator className="text-[70px] ml-[25px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">Kulkas</p>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <div className="flex w-[184px] h-[124px] m-8 ">
+          <MdOutlineRestaurant className="text-[70px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">Restoran</p>
+        </div>
+        <div className=" flex w-[184px] h-[124px] m-8 ">
+          <RiBilliardsLine className="text-[70px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">Billiard</p>
+        </div>
+        <div className=" flex w-[184px] h-[124px] m-8 ">
+          <FaSwimmingPool className="text-[70px] ml-[25px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">Kolam Renang</p>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <div className="flex w-[184px] h-[124px] m-8 rounded-[5px]">
+          <FaParking className="text-[70px] text-[#939393]" />
+          <p className="py-4 ml-[30px] text-[20px]">Parkir Gratis</p>
+        </div>
+      </div>
+
+      <div className="mt-[-40px]">
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+          <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
+            <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14 underline">
+              Ulasan
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div className="mt-[-40px]">
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+          <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
+            <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14 underline">
+              Kontak Kami
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-content">
+        <div className="">
+          <iframe
+            src="https://maps.google.com/maps?q=hotel%20mulia&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            className="w-[500px] h-[500px] ml-[120px]"
+          />
+        </div >
+        <div className="mt-[135px]">
+          <div className=" flex py-4">
+            <BsTelephone className="text-[40px] text-[#939393] ml-[210px]" />
+            <p className="text-[20px] ml-[10px]">+62 21 23456789</p>
+          </div>
+          <div className=" flex py-4">
+            <BsWhatsapp className="text-[40px] text-[#939393] ml-[210px]" />
+            <p className="text-[20px] ml-[10px]">+62 21 23456789</p>
+          </div>
+          <div className=" flex py-4">
+            <HiOutlineMail className="text-[40px] text-[#939393] ml-[210px]" />
+            <p className="text-[20px] ml-[10px]">Hotelmuliasenayan@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
