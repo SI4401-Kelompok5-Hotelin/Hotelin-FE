@@ -17,6 +17,7 @@ import ListHotel from "./pages/ListHotel";
 import Addhotel from "./pages/AddHotel";
 import Detailhotel from "./pages/DetailHotel";
 import RequireAuth from "./Hooks/RequireAuth";
+import Page404 from "./pages/404Page";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
               <Route path="/addhotel" element={<Addhotel />} />
               <Route path="/hotel/detail/:id" element={<Detailhotel />} />
             </Route>
+            <Route path="/*" element={<Page404 />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>
