@@ -16,7 +16,7 @@ export default function ReviewBooking() {
             1
           </div>
           <div className="">
-            <h1 className="ml-2 text-base font-semibold text-Black-Normal">
+            <h1 className="ml-2 text-base font-semibold text-[#939393]">
               Fill in data
             </h1>
           </div>
@@ -25,7 +25,7 @@ export default function ReviewBooking() {
             2
           </div>
           <div className="">
-            <h1 className="ml-2 text-base font-semibold text-[#939393]">
+            <h1 className="ml-2 text-base font-semibold">
               Review
             </h1>
           </div>
@@ -197,7 +197,7 @@ export default function ReviewBooking() {
               <h1 className=" mr-[38px] mt-[14px] text-[12px]">Rp 2.000.000</h1>
             </div>
           </div>
-          <div className="card w-[727px] h-[50px] mt-[50px] rounded-[5px]">
+          <div className="card w-[727px] h-[50px] mt-[50px] rounded-[1px]">
             <h1 className="font-bold text-end pt-[14px] pr-[38px] text-[12px]">
               Rp 2.000.000
             </h1>
