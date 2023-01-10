@@ -37,7 +37,7 @@ export default function Header() {
     <div className="navbar bg-base-100 container mb-8 mt-5">
       <div className="navbar-lg gap-3">
         <Link to="/">
-          <h1 className="font-bold text-black">Home</h1>
+          <h1 className="font-bold text-black ml-[80px]">Home</h1>
         </Link>
         <Link to="/">
           <h1 className="font-bold text-black">Service</h1>
@@ -55,12 +55,12 @@ export default function Header() {
           return (
             <>
               <Link to="/login">
-                <div className="btn bg-[#1788FB] border-none hover:bg-[#1788FB] hover:text-white h-[43px] w-[95px]">
+                <div className="btn bg-[#1788FB] border-none hover:bg-[#1788FB] hover:text-white h-[43px] w-[95px] ">
                   Log in
                 </div>
               </Link>
               <Link to="/register">
-                <div className="btn bg-white text-[#1788fb] border-none h-[43px]">
+                <div className="btn bg-white text-[#1788fb] border-none h-[43px] mr-[80px]">
                   Sign Up
                 </div>
               </Link>

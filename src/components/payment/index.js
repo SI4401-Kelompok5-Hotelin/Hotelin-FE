@@ -1,13 +1,44 @@
 import React from "react";
 import Footer from "../footer";
 import Header from "../Navbar";
+import logo from "../../asset/logo.png";
 
 export default function Payment() {
   return (
     <div>
-      <Header />
+      <div>
+        <img src={logo} alt="logo" className="ml-[60px] mt-[19px]" />
+        <div className="absolute top-0 right-[202px] flex items-center mt-8">
+          <div className="text-white rounded-full flex items-center justify-center bg-[#939393] w-[35px] h-[35px]">
+            1
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-Black-Normal">
+              Fill in data
+            </h1>
+          </div>
+          <div className="w-[40px] border-b-2 border-[#939393] border-slate-400 m-4"></div>
+          <div className="text-white rounded-full flex items-center justify-center bg-[#1788FB] w-[35px] h-[35px] ">
+            2
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-[#939393]">
+              Review
+            </h1>
+          </div>
+          <div className="w-[40px] border-b-2 border-[#939393] border-slate-400 m-4"></div>
+          <div className="text-white rounded-full flex items-center justify-center bg-[#939393] w-[35px] h-[35px] ">
+            3
+          </div>
+          <div className="">
+            <h1 className="ml-2 text-base font-semibold text-[#939393]">
+              Payment
+            </h1>
+          </div>
+        </div>
+      </div>
       <div className="flex justify-between">
-        <div className="card w-[703px] h-[545px] shadow-xl m-20">
+        <div className="card w-[800px] h-[545px] shadow-xl m-20">
           <div className="card-body">
             <div className="flex justify-between">
               <div>

@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import HistoryBooking from "./pages/HistoryBooking";
 import DashboardAdmin from "./pages/DashboardAdmin";
 import Topupsaldo from "./components/topup";
+import ReviewBooking from "./components/review";
 import ListHotel from "./pages/ListHotel";
 import Addhotel from "./pages/AddHotel";
 import Detailhotel from "./pages/DetailHotel";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/" element={<Home />} />
+            <Route path="/review" element={<ReviewBooking />} />
             {/* <Route
               path="/customerservice"
               element
