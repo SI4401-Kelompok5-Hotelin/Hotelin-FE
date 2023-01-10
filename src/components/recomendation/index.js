@@ -1,24 +1,40 @@
-import { data } from "autoprefixer";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Rating() {
-  data = [
-    {
-      judul: "Hotel Senayan",
-      desc: "awmdkwamdkmwakdmkawmdkawmdk",
-      img: "https://placeimg.com/400/225/arch",
-    },
-    {
-      judul: "Hotel Melati",
-      desc: "awmdkwamdkmwakdmkawmdkawmdk",
-      img: "https://placeimg.com/400/225/arch",
-    },
-    {
-      judul: "Hotel In",
-      desc: "awmdkwamdkmwakdmkawmdkawmdk",
-      img: "https://placeimg.com/400/225/arch",
-    },
-  ];
+
+  // data = [
+  //   {
+  //     judul: "Hotel Senayan",
+  //     desc: "awmdkwamdkmwakdmkawmdkawmdk",
+  //     img: "https://placeimg.com/400/225/arch",
+  //   },
+  //   {
+  //     judul: "Hotel Melati",
+  //     desc: "awmdkwamdkmwakdmkawmdkawmdk",
+  //     img: "https://placeimg.com/400/225/arch",
+  //   },
+  //   {
+  //     judul: "Hotel In",
+  //     desc: "awmdkwamdkmwakdmkawmdkawmdk",
+  //     img: "https://placeimg.com/400/225/arch",
+  //   },
+  // ];
+  const url = process.env.REACT_APP_API_ENDPOINT + "/hotel";
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(url, {
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setData(res.data.data);
+        console.log(res);
+      });
+  }, []);
+
   return (
     <div className="mt-[80px]">
       <div class="bg-white py-6 sm:py-8 lg:py-12">
@@ -30,17 +46,23 @@ export default function Rating() {
             Berikut merupakan hotel dengan rating tertinggi.
           </p>
           <div className="flex gap-9 min-w-screen">
-            {data.map((item, index) => {
+            {data.slice(0,3).map((item, index) => {
               return (
                 <div className="card w-96 bg-base-100 shadow-xl" key={index}>
                   <figure className="px-10 pt-10">
-                    <img src={item.img} alt="Shoes" className="rounded-xl" />
+                    <img
+                      src="https://placeimg.com/400/225/arch"
+                      alt="Hotel"
+                      className="rounded-xl"
+                    />
                   </figure>
                   <div className="card-body items-center text-center">
-                    <h2 className="card-title">{item.judul}</h2>
-                    <p>{item.desc}</p>
+                    <h2 className="card-title">{item.name}</h2>
+                    <p>{item.phone}</p>
                     <div className="card-actions mt-2">
-                      <button className="btn btn-primary">Book Now</button>
+                      <Link to="/hotel/1">
+                        <button className="btn btn-primary">Book Now</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
