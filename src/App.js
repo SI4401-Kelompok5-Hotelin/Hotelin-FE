@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import HistoryBooking from "./pages/HistoryBooking";
 import DashboardAdmin from "./pages/DashboardAdmin";
 import Topupsaldo from "./components/topup";
+import ReviewBooking from "./components/review";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/history" element={<HistoryBooking />} />
             <Route path="/admin" element={<DashboardAdmin />} />
             <Route path="/topup" element={<Topupsaldo />} />
+            <Route path="/review" element={<ReviewBooking />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>

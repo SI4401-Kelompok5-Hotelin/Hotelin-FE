@@ -7,7 +7,7 @@ export default function Payment() {
     <div>
       <Header />
       <div className="flex justify-between">
-        <div className="card w-[703px] h-[545px] shadow-xl m-20">
+        <div className="card w-[800px] h-[545px] shadow-xl m-20">
           <div className="card-body">
             <div className="flex justify-between">
               <div>
