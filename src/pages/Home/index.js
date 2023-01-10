@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../../components/banner";
 import CardHotel from "../../components/card";
+import CustomerService from "../../components/CustomerService";
 import Footer from "../../components/footer";
 import Header from "../../components/Navbar";
 import Iklan from "../../components/promo";
@@ -14,6 +15,7 @@ export default function Home() {
       <CardHotel />
       <Iklan />
       <Rating />
+      <CustomerService />
       <Footer />
     </div>
   );

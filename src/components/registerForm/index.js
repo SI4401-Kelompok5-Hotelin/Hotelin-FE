@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiArrowLeft, HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from 'react-router-dom';
+import { useToast } from "@chakra-ui/react";
 import signup from "../../asset/signup.png";
 import axios from 'axios';
 
@@ -66,8 +67,9 @@ export default function RegisterForm() {
   //     setError(true)
   //   }
   // };
-  const url = process.env.REACT_APP_API_ENDPOINT + "/api/register";
+  const url = process.env.REACT_APP_API_ENDPOINT + "/register";
   const navigate = useNavigate();
+  const toast = useToast();
   const [data, setData] = useState([{}]);
   function handle(e) {
     const newData = { ...data };
@@ -86,6 +88,14 @@ export default function RegisterForm() {
       } else {
         console.log(res);
         navigate("/login");
+        toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+          position: "top-right",
+        });
       }
     });
   }
