@@ -25,9 +25,7 @@ export default function ReviewBooking() {
             2
           </div>
           <div className="">
-            <h1 className="ml-2 text-base font-semibold">
-              Review
-            </h1>
+            <h1 className="ml-2 text-base font-semibold">Review</h1>
           </div>
           <div className="w-[40px] border-b-2 border-[#939393] border-slate-400 m-4"></div>
           <div className="text-white rounded-full flex items-center justify-center bg-[#939393] w-[35px] h-[35px] ">
@@ -162,16 +160,17 @@ export default function ReviewBooking() {
           <p className="text-start ml-[56px] text-[10px]">
             Cancellation Policy Applies
           </p>
-
-          <div className="flex">
-            <p className="text-start font-bold text-[10px] pt-[35px] text-[#939393] ml-[56px] ">
-              This reservation is non-refundable.
-            </p>
-          </div>
-          <div className="flex">
-            <p className="text-start font-bold text-[10px] pt-[10px] text-[#939393] ml-[56px] ">
-              Times displayed ar based on the accommodation’s local time.
-            </p>
+          <div className="card w-[722px] h-[58px] ml-[2px] mt-[20px] border-none bg-[#f4f4f4] rounded-[1px]">
+            <div className="flex ">
+              <p className="text-start font-bold text-[10px] pt-[10px] text-[#939393] ml-[56px]  ">
+                This reservation is non-refundable.
+              </p>
+            </div>
+            <div className="flex">
+              <p className="text-start font-bold text-[10px] pt-[10px] text-[#939393] ml-[56px] ">
+                Times displayed ar based on the accommodation’s local time.
+              </p>
+            </div>
           </div>
         </div>
         <h1 className="text-start mt-[42px] ml-[84px] font-bold">
@@ -211,11 +210,10 @@ export default function ReviewBooking() {
           </button>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
       <Footer />
-      
     </div>
   );
 }
