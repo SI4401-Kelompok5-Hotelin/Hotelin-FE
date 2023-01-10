@@ -147,7 +147,7 @@ export default function ReviewBooking() {
 
         <div className="card mt-[42px] w-[727px] h-[190px] ml-[84px] rounded-[5px]">
           <h1 className="ml-[28px] text-start text-[12px] mt-[16px] font-bold">
-            Accomodation Policies
+          Hotel & Room Policy
           </h1>
           <div className="flex ml-[28px] mt-[38px]">
             <div className="flex">
