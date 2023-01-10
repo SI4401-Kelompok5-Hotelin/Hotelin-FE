@@ -10,10 +10,10 @@ export default function Page404() {
         <img
           src={PageNotFound}
           alt="404"
-          className="default:w-[685px] default:h-[572px] 2xl:w-[485px] 2xl:h-[372px]"
+          className="w-[685px] h-[572px]"
         />
       </div>
-      <div className="flex flex-col justify-center font-semibold text-[31px] text-Black-Normal text-center mt-[30px]">
+      <div className="flex flex-col justify-center font-semibold text-[31px] text-[#444444] text-center mt-[30px]">
         <h1 className="">
           Oops! Sepertinya terjadi kesalahan pada
           <br /> sistem
