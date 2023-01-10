@@ -3,7 +3,7 @@ import React from "react";
 export default function Iklan() {
   return (
     <div>
-      <div className="carousel mx-32  pt-[300px]">
+      <div className="carousel mx-32 pt-[300px]">
         <div id="item1" className="carousel-item w-full">
           <img
             src="https://www.agoda.com/c/SuperWednesdayID?currency=idr&cid=1881733&platform=mobile"

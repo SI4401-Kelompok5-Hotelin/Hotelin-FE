@@ -58,7 +58,7 @@ export default function Rating() {
                   </figure>
                   <div className="card-body items-center text-center">
                     <h2 className="card-title">{item.name}</h2>
-                    <p>{item.phone}</p>
+                    <p>{item.address}</p>
                     <div className="card-actions mt-2">
                       <Link to="/hotel/1">
                         <button className="btn btn-primary">Book Now</button>
