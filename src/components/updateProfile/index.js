@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
@@ -7,11 +7,8 @@ import { useToast } from '@chakra-ui/react';
 
 export default function UpdateProfile() {
     const url = process.env.REACT_APP_API_ENDPOINT + "/profile/change";
+    const url2 = process.env.REACT_APP_API_ENDPOINT + "/profile";
     const [data, setData] = useState([{}])
-    const name = localStorage.getItem("name");
-    const email = localStorage.getItem("email");
-    const phone = localStorage.getItem("phone");
-    const address = localStorage.getItem("address");
     const toast = useToast();
     const navigate = useNavigate();
 
@@ -25,6 +22,17 @@ export default function UpdateProfile() {
     const handleLogout = () => {
         localStorage.removeItem("token");
     };
+
+    useEffect(() => {
+      axios
+        .get(url2, {
+          headers: { Authorization: `${localStorage.getItem("token")}` },
+        })
+        .then((res) => {
+          setData(res.data.data);
+          console.log(res.data.data);
+        });
+    }, []);
 
     function submit(e) {
       e.preventDefault();
@@ -57,7 +65,6 @@ export default function UpdateProfile() {
         </label>
         <input
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
-          placeholder={name}
           onChange={(e) => handle(e)}
           value={data.name}
           type="text"
@@ -69,7 +76,6 @@ export default function UpdateProfile() {
         </label>
         <input
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
-          placeholder={email}
           onChange={(e) => handle(e)}
           value={data.email}
           type="text"
@@ -81,7 +87,6 @@ export default function UpdateProfile() {
         </label>
         <input
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
-          placeholder={phone}
           onChange={(e) => handle(e)}
           value={data.phone}
           type="number"
@@ -93,7 +98,6 @@ export default function UpdateProfile() {
         </label>
         <input
           className="w-[1069px] h-[50px] border-[3px] rounded-[10px] border-black mt-[8px] pl-3 placeholder:font-base placeholder:text-[20px]"
-          placeholder={address}
           onChange={(e) => handle(e)}
           value={data.address}
           type="text"
@@ -119,8 +123,20 @@ export default function UpdateProfile() {
           >
             Change
           </button>
-          <Link to="/" >
-            <button onClick={handleLogout} className='btn bg-red-500 border-none hover:text-white text-white hover:bg-red-500'>Log Out</button>
+          <Link to="/">
+            <button
+              onClick={handleLogout}
+              className="btn bg-red-500 border-none hover:text-white text-white hover:bg-red-500"
+            >
+              Log Out
+            </button>
+          </Link>
+          <Link to="/history">
+            <button
+              className="btn bg-blue-500 border-none hover:text-white text-white hover:bg-blue-700"
+            >
+              History Booking
+            </button>
           </Link>
         </div>
       </div>
