@@ -59,7 +59,7 @@ export default function Ulasan(props) {
   }
   return (
     <div>
-      <Button mt={4} onClick={onOpen}>
+      <Button mt={8} onClick={onOpen} color={"blue.500"}>
         Berikan Ulasan
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import hotelkecil from '../../asset/hotelkecil.png'
 import axios from 'axios';
 import Ulasan from '../ulasan';
+import { useToast } from '@chakra-ui/react';
+import { useNavigate } from "react-router-dom";
 
 export default function HistoryPayment() {
     const [data, setData] = useState([]);
@@ -17,11 +19,42 @@ export default function HistoryPayment() {
         });
     }, []);
 
+    const navigate = useNavigate();
+    const toast = useToast();
+
+    function submit(e) {
+      let id = e.target.value;
+      axios
+        .delete(process.env.REACT_APP_API_ENDPOINT + `/booking/delete?id=${id}`, {
+          headers: {
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        })
+        .then((res) => {
+          if (res.message === "Network Error") {
+            console.log(res);
+            alert("Periksa koneksi internet anda");
+          } else {
+            console.log(res);
+            navigate("/history");
+            toast({
+              title: "Your Booking Canceled",
+              description: "Your booking for this hotel has been canceled.",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+              position: "top-right",
+            });
+            window.location.reload();
+          }
+        });
+    }
+
   return (
     <div className="flex justify-center pb-32">
       <div>
         <h1 className="text-[25px] font-semibold mt-[140px]">
-          History Transaction
+          Booking History
         </h1>
         <div className="justify-center flex flex-col mt-[60px] gap-5">
           {data.map((item, index) => {
@@ -43,6 +76,13 @@ export default function HistoryPayment() {
                       {item.room_name}
                     </h1>
                     <Ulasan hotelid={item.hotel_id} />
+                    <button
+                      className="btn bg-red-500 text-white border-none mt-3 hover:bg-red-400 hover-text-white"
+                      onClick={submit}
+                      value={item.id}
+                    >
+                      Batalkan
+                    </button>
                   </div>
                 </div>
                 <h1 className="text-[#91C60B] font-semibold text-[25px]">

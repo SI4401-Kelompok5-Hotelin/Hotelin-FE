@@ -15,6 +15,7 @@ import { FaParking } from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
+import { Avatar } from "@chakra-ui/react";
 import axios from "axios";
 
 import Footer from "../footer";
@@ -84,12 +85,43 @@ export default function Hotel() {
       </div>
 
       <div className="absolute mt-[-250px] ">
-        <div className="card shadow h-[169px]  w-[1086px] mx-52 rounded-[10px] bg-[#1788FB]">
-          <div className="">
-            <div className="py-auto max-w-4xl flex items-center">
-              <h1 className="  text-start pl-8 mb-4 text-lg font-bold text-white pt-[69px] text-[25px]">
+        <div className="card shadow h-[169px] flex items-center w-[1086px] mx-52 rounded-[10px] bg-[#1788FB]">
+          <div className="w-full h-full">
+            <div className="w-full h-full flex items-center">
+              <h1 className="text-start pl-8 h-[50px] flex items-center text-lg font-bold text-white border-r-2 pr-8 text-[25px]">
                 Fasilitas
               </h1>
+              <span className="text-white ml-8">
+                <MdOutlineAir className="w-10 h-10 mb-2" />
+                <h1>AC</h1>
+              </span>
+              <span className="text-white ml-8">
+                <FaSwimmingPool className="w-10 h-10 mb-2 flex mx-auto" />
+                <h1>Swimming Pool</h1>
+              </span>
+              <span className="text-white ml-8">
+                <MdOutlineRestaurant className="w-10 h-10 mb-2 flex mx-auto" />
+                <h1>Restaurant</h1>
+              </span>
+              <span className="text-white ml-8 border-r-2 pr-8">
+                <AiOutlineWifi className="w-10 h-10 mb-2" />
+                <h1>WiFi</h1>
+              </span>
+              <h1 className="ml-8 font-bold text-white text-[25px]">
+                Rating Hotel
+              </h1>
+              <h1 className="font-bold text-white ml-5 text-[25px]">{data.rating}</h1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[30px] h-[30px] text-yellow-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <button className="w-[168px] h-[66px] text-blue-500 bg-white font-bold text-[20px] ml-5">
+                Pilih Kamar
+              </button>
             </div>
           </div>
         </div>
@@ -102,18 +134,18 @@ export default function Hotel() {
               Tentang Kami
             </h2>
             <p className="mb-5 text-[20px] pt-1">
-              Hotel Kami menampilkan kamar-kamar luas yang
-              memancarkan suasana elegan, lengkap dengan keramahan hangat khas
-              Indonesia. The Suites di Hotel Kami membanggakan
-              suite mewah serta butler Anda sendiri, siap memenuhi setiap
-              kebutuhan Anda. Kedua pengalaman menjanjikan tingkat layanan yang
-              melampaui dan melampaui, mendefinisikan kembali kemewahan di
-              setiap langkah. Hotel pemenang penghargaan ini memiliki
-              serangkaian fasilitas premium untuk memuaskan setiap tamu. Cicipi
-              masakan Indonesia, Asia, dan Kontinental terbaik di salah satu
-              dari sembilan restoran dan bar di hotel. Manjakan diri Anda dalam
-              keadaan bahagia di tempat Spa atau tingkatkan energi Anda di Pusat
-              Kebugaran luas yang menghadap ke view yang sangat bagus.
+              Hotel Kami menampilkan kamar-kamar luas yang memancarkan suasana
+              elegan, lengkap dengan keramahan hangat khas Indonesia. The Suites
+              di Hotel Kami membanggakan suite mewah serta butler Anda sendiri,
+              siap memenuhi setiap kebutuhan Anda. Kedua pengalaman menjanjikan
+              tingkat layanan yang melampaui dan melampaui, mendefinisikan
+              kembali kemewahan di setiap langkah. Hotel pemenang penghargaan
+              ini memiliki serangkaian fasilitas premium untuk memuaskan setiap
+              tamu. Cicipi masakan Indonesia, Asia, dan Kontinental terbaik di
+              salah satu dari sembilan restoran dan bar di hotel. Manjakan diri
+              Anda dalam keadaan bahagia di tempat Spa atau tingkatkan energi
+              Anda di Pusat Kebugaran luas yang menghadap ke view yang sangat
+              bagus.
             </p>
           </div>
         </div>
@@ -241,6 +273,45 @@ export default function Hotel() {
             <h2 class="text-gray-800 text-2xl lg:text-[40px] font-bold text-center mb-4 md:mb-8 xl:mb-12 pt-14 underline">
               Ulasan
             </h2>
+            <div className="flex">
+              <h1 className="font-semibold text-[25px]">{data.rating}</h1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[30px] h-[30px] text-yellow-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <h1 className="font-semibold text-[25px]">- 4 Ulasan</h1>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mt-5">
+                <div className="flex">
+                  <Avatar src="https://bit.ly/dan-abramov" />
+                  <span className="ml-3">
+                    <h1 className="font-semibold text-[25px] text-start">
+                      Asep Stroberi
+                    </h1>
+                    <p className="text start">
+                      Ini hotel keren banget murah juga recommended banget
+                    </p>
+                  </span>
+                </div>
+                <div className="flex">
+                  <Avatar src="https://bit.ly/code-beast" />
+                  <span className="ml-3">
+                    <h1 className="font-semibold text-[25px] text-start">
+                      Bang Batre
+                    </h1>
+                    <p className="text start">
+                      Kece banget jon wifinya kenceng pol, buat donlot apapun
+                      sabi disini nyaman banget
+                    </p>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
