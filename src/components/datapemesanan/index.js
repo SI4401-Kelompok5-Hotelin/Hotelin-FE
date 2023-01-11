@@ -1,10 +1,91 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsCheck } from "react-icons/bs";
 import Footer from "../footer";
 import logo from "../../asset/logo.png";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+// import { useToast } from "@chakra-ui/react";
 
 export default function DataPemesanan() {
+  const url = process.env.REACT_APP_API_ENDPOINT + "/profile";
+  // const url2 = process.env.REACT_APP_API_ENDPOINT + "booking/create"
+  const navigate = useNavigate();
+  // const toast = useToast();
+  const params = useParams();
+  const newId = String(params["id"]);
+  const price = params["price"];
+  localStorage.setItem("price", price)
+  localStorage.setItem("roomid", newId);
+  const [user, setUser] = useState([]);
+  const [data, setData] = useState([]);
+
+  // console.log(data);
+
+  useEffect(() => {
+    axios
+      .get(url, {
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setUser(res.data.data);
+        console.log(res.data.data);
+      });
+  }, []);
+
+  function handle(e) {
+    const newData = { ...user };
+    newData[e.target.id] = e.target.value;
+    setUser(newData);
+    console.log(newData);
+  }
+
+  function handleData(e) {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  }
+
+  const handleChange = (e) => {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    setData({ ...data, [name]: value });
+  };
+
+  function submit() {
+    localStorage.setItem("data", JSON.stringify(data));
+    navigate("/review")
+  }
+
+  // function submit(e) {
+  //   e.preventDefault();
+  //   axios
+  //     .post(url, data, {
+  //       headers: {
+  //         Authorization: `${localStorage.getItem("token")}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       if (res.message === "Network Error") {
+  //         console.log(res);
+  //         alert("Periksa koneksi internet anda");
+  //       } else {
+  //         console.log(res);
+  //         navigate("/review");
+  //         toast({
+  //           title: "Booking saved",
+  //           description: "We've successfully saved your booking.",
+  //           status: "success",
+  //           duration: 9000,
+  //           isClosable: true,
+  //           position: "top-right",
+  //         });
+  //       }
+  //     });
+  // }
+
   return (
     <div>
       <div>
@@ -55,10 +136,10 @@ export default function DataPemesanan() {
             <CgProfile className="text-[30px] text-[#1788FB]" />
             <div className="ml-[10px]">
               <h1 className="text-[12px] font-bold text-start">
-                Logged in as WATI KASIR{" "}
+                Logged in as {user.name}{" "}
               </h1>
               <p className=" text-start font-bold text-[#939393] text-[12px]">
-                WATI KASIR (Google)
+                {user.name} (Google)
               </p>
             </div>
           </div>
@@ -66,27 +147,77 @@ export default function DataPemesanan() {
 
         <div className="ml-[199px] mt-[42px]">
           <h1 className="text-start font-bold">Your Information </h1>
-          <div className="card w-[556px] h-[195px] rounded-[5px] mt-[24px]">
+          <div className="card w-[556px] h-min-content rounded-[5px] mt-[24px]">
             <h1 className="ml-[32px] text-start tetx-[12px] mt-[16px] font-bold">
               Contact’s name
             </h1>
             <input
-              value="Wati Kasir"
+              value={user.name}
+              onChange={(e) => handle(e)}
+              name="name"
+              id="name"
               className="border-2 border-[#dedede] w-[350px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[4px] placeholder:text-[12px]"
             />
-            <div className="flex justify-between">
+            <div className="flex gap-[120px]">
               <input
-                value="081368786670"
+                value={user.phone}
+                onChange={(e) => handle(e)}
+                name="phone"
+                id="phone"
                 className="border-2 border-[#dedede] w-[145px] pl-3 h-[30px] ml-[32px] rounded-[5px] mt-[25px]"
               />
               <input
-                value="watikasir@gmail.com"
+                value={user.email}
+                onChange={(e) => handle(e)}
+                name="email"
+                id="email"
                 className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] mr-[113px] rounded-[5px] mt-[25px]"
               />
             </div>
             <p className="ml-[10px] text-[8px] mt-[6px] text-[#939393]">
               e.g.: example@gmail.com
             </p>
+            <div className="flex gap-5 ml-[32px] mt-[25px]">
+              <span className="flex flex-col">
+                <label for="check_in" className="mr-2 font-bold text-start">
+                  Check In
+                </label>
+                <input
+                  value={data.check_in}
+                  onChange={(e) => handleData(e)}
+                  name="check_in"
+                  id="check_in"
+                  type="date"
+                  className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] rounded-[5px] mt-[25px]"
+                />
+              </span>
+              <span className="flex flex-col">
+                <label for="check_in" className="mr-2 font-bold text-start">
+                  Check Out
+                </label>
+                <input
+                  value={data.check_out}
+                  onChange={(e) => handleData(e)}
+                  name="check_out"
+                  id="check_out"
+                  type="date"
+                  className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] mr-[113px] rounded-[5px] mt-[25px]"
+                />
+              </span>
+            </div>
+            <div className="flex flex-col ml-[32px] mt-[25px]">
+              <label for="check_in" className="mr-2 font-bold text-start">
+                  Duration (Days)
+                </label>
+                <input
+                  value={data.duration}
+                  onChange={(e) => handleData(e)}
+                  name="duration"
+                  id="duration"
+                  type="number"
+                  className="pl-3 border-2 border-[#dedede] w-[207px] h-[30px] mr-[113px] rounded-[5px] mt-[25px]"
+                />
+            </div>
             <div className="card w-[555px] h-[39px] rounded-[0px] mt-[21px] bg-[#f4f4f4]">
               <div className="flex justify-center items-center">
                 <input
@@ -217,10 +348,11 @@ export default function DataPemesanan() {
             <div className="flex mt-[11px] ml-[38px]">
               <input
                 type="checkbox"
-                value="iamguest"
+                value="Yes"
                 name="covid"
                 id="covid"
-                className=""
+                checked={data.covid}
+                onChange={(e) => handleChange(e)}
               />
               <label for="covid" className="ml-[10px] font-bold text-[12px]">
                 Hotel COVID-19 Insurance
@@ -299,18 +431,18 @@ export default function DataPemesanan() {
             </div>
 
             <div>
-              <h1 className=" mr-[38px] mt-[14px] text-[12px]">Rp 2.000.000</h1>
+              <h1 className=" mr-[38px] mt-[14px] text-[12px]">Rp {price}</h1>
             </div>
           </div>
           <div className="card w-[556px] h-[50px] mt-[50px] rounded-[5px]">
             <h1 className="font-bold text-end pt-[14px] pr-[38px] text-[12px]">
-              Rp 2.000.000
+              Rp {price}
             </h1>
           </div>
         </div>
 
         <div className="">
-          <button className="btn bg-[#1788FB] text-white mt-[28px] border-none mr-[150px] w-[142px] h-[40px] text-[10px] hover:bg-[#419EFD]">
+          <button className="btn bg-[#1788FB] text-white mt-[28px] border-none mr-[90px] w-[160px] h-[40px] text-[10px] hover:bg-[#419EFD]" onClick={submit}>
             {" "}
             Continue to Review
           </button>

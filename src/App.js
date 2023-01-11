@@ -43,10 +43,10 @@ function App() {
                 return null;
               }}
             /> */}
-            <Route path="/hotel/1" element={<Detail />} />
             <Route exact path="/" element={<RequireAuth />}>
+              <Route path="/hotel/:id" element={<Detail />} />
               <Route path="/payment" element={<Payment />} />
-              <Route path="/data" element={<Datapemesanan />} />
+              <Route path="/data/:id/:price" element={<Datapemesanan />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/history" element={<HistoryBooking />} />
               <Route path="/admin" element={<DashboardAdmin />} />

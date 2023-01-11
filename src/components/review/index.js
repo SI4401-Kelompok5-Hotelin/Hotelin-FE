@@ -1,12 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../asset/logo.png";
 import Mulia from "../../asset/mulia.jpg";
 import { RiHotelFill } from "react-icons/ri";
 import { BiTimeFive } from "react-icons/bi";
 import { BsChatLeftText } from "react-icons/bs";
 import Footer from "../footer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 export default function ReviewBooking() {
+  const data = localStorage.getItem("data");
+  const hotelid = localStorage.getItem("hotelid");
+  const roomid = localStorage.getItem("roomid");
+  const price = localStorage.getItem("price");
+  const newData = JSON.parse(data);
+  const navigate = useNavigate();
+  const toast = useToast();
+  const url = process.env.REACT_APP_API_ENDPOINT + "/booking/create";
+  const [booking] = useState([
+    {
+      hotel_id: hotelid,
+      room_id: roomid,
+      covid: newData.covid,
+      duration: parseInt(newData.duration),
+      check_in: newData.check_in,
+      check_out: newData.check_out,
+    },
+  ]);
+  console.log(booking[0]);
+
+  function submit(e) {
+    e.preventDefault();
+    axios
+      .post(url, booking[0], {
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        if (res.message === "Network Error") {
+          console.log(res);
+          alert("Periksa koneksi internet anda");
+        } else {
+          console.log(res);
+          navigate("/payment");
+          toast({
+            title: "Booking Successful",
+            description: "Your booking was successful.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top-right",
+          });
+        }
+      });
+  }
+
   return (
     <div>
       <div>
@@ -68,7 +118,7 @@ export default function ReviewBooking() {
                     Check-in
                   </h1>
                   <p className="ml-[22px] font-bold text-[12px] pt-[10px] ">
-                    26 Des 2022
+                    {newData.check_in}
                   </p>
                   <p className="ml-[12px]  text-[12px] pt-[10px] ">
                     From 14:00
@@ -79,7 +129,7 @@ export default function ReviewBooking() {
                     Check-out
                   </h1>
                   <p className="ml-[90px] font-bold text-[12px] pt-[10px]">
-                    27 Des 2022
+                    {newData.check_out}
                   </p>
                   <p className="ml-[88px]  text-[12px] pt-[10px]">
                     Before 12:00
@@ -90,7 +140,7 @@ export default function ReviewBooking() {
                     Duration of Stay
                   </h1>
                   <p className=" ml-[28px] font-bold text-[12px] pt-[10px]">
-                    1 night
+                    {newData.duration} Days
                   </p>
                 </div>
               </div>
@@ -98,7 +148,7 @@ export default function ReviewBooking() {
           </div>
 
           <h1 className="ml-[28px] text-start text-[12px] mt-[16px] font-bold">
-            Splendor City View
+            Detail Room
           </h1>
           <div className="flex justify-between">
             <div>
@@ -193,22 +243,20 @@ export default function ReviewBooking() {
             </div>
 
             <div>
-              <h1 className=" mr-[38px] mt-[14px] text-[12px]">Rp 2.000.000</h1>
+              <h1 className=" mr-[38px] mt-[14px] text-[12px]">Rp {price}</h1>
             </div>
           </div>
           <div className="card w-[727px] h-[50px] mt-[50px] rounded-[1px]">
             <h1 className="font-bold text-end pt-[14px] pr-[38px] text-[12px]">
-              Rp 2.000.000
+              Rp {price}
             </h1>
           </div>
         </div>
 
-        <div className="">
-          <button className="btn bg-[#FFC50A] text-white mt-[28px] border-none mr-[325px] w-[437px] h-[40px] text-[10px] hover:bg-[#419EFD]">
+          <button className="btn bg-[#FFC50A] text-white mt-[28px] border-none mr-[325px] w-[437px] h-[40px] text-[10px] hover:bg-[#419EFD]" onClick={submit}>
             {" "}
             Continue to Payment
           </button>
-        </div>
       </div>
       <br />
       <br />

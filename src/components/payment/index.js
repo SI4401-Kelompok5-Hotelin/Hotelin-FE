@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../footer";
-import Header from "../Navbar";
+// import Header from "../Navbar";
 import logo from "../../asset/logo.png";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Payment() {
+  const data = localStorage.getItem("data");
+  const hotelid = localStorage.getItem("hotelid");
+  const price = localStorage.getItem("price");
+  const hotelname = localStorage.getItem("hotelname");
+  const newData = JSON.parse(data);
+  const url2 = process.env.REACT_APP_API_ENDPOINT + "/profile";
+  const [data2, setData2] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(url2, {
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setData2(res.data.data.name);
+      });
+  }, []);
+
   return (
     <div>
       <div>
@@ -43,38 +63,32 @@ export default function Payment() {
                 <h2 className="text-start font-bold text-[#939393] text-[14px]">
                   NO. PESANAN
                 </h2>
-                <p className="text-start">000000111111</p>
+                <p className="text-start">{hotelid}</p>
                 <div></div>
                 <h2 className="text-start font-bold text-[#939393] text-[14px] pt-[30px]">
-                  RINCIAN PESANAN
+                  NAMA HOTEL
                 </h2>
-                <p className="text-start">Hotel Mulia Senayan</p>
+                <p className="text-start">{hotelname}</p>
                 <h2 className="text-start font-bold text-[#939393] text-[14px] pt-[30px]">
                   RINCIAN PESANAN
                 </h2>
                 <ul className="list-disc ml-[20px] text-[#939393] font-bold text-start">
-                  <li className="pt-[8px] ">Senin, 26 Desember 2022</li>
-                  <li className="pt-[8px] ">1 Malam</li>
+                  <li className="pt-[8px] ">{newData.check_in} (Check In)</li>
+                  <li className="pt-[8px] ">{newData.duration} Malam</li>
                   <li className="pt-[8px] ">Twin Bed</li>
                   <li className="pt-[8px] ">1 Kamar</li>
-                  <li className="pt-[8px] ">Splendor City View</li>
                 </ul>
                 <div></div>
                 <h2 className="text-start font-bold text-[#939393] text-[14px] pt-[30px]">
-                  RINCIAN PESANAN
+                  NAMA PEMESAN
                 </h2>
-                <p className="text-start italic">Fauzan Nur Fachri</p>
+                <p className="text-start italic">{data2}</p>
                 <h2 className="text-start font-bold text-[#939393] text-[14px] pt-[30px]">
                   TOTAL
                 </h2>
 
                 <div>
-                  <p className="text-start italic font-bold">
-                    Splendor City View
-                  </p>
-                  <p className="text-start">
-                    (Rp 2.000.0000)
-                  </p>
+                  <p className="text-start">Rp {price}</p>
                 </div>
               </div>
 
@@ -90,9 +104,11 @@ export default function Payment() {
               <h1 className="text-success italic">Pembayaran Lunas</h1>
             </div>
           </div>
-          <button className="btn bg-[#FFC50A] text-white mt-[36px] border-none ml-[500px] w-[200px] h-[40px] text-[10px] hover:bg-[#419EFD]">
-            <p className="">Back to Home Page</p>
-          </button>
+          <Link to="/">
+            <button className="btn bg-[#FFC50A] text-white mt-[100px] border-none ml-[500px] w-[200px] h-[40px] text-[10px] hover:bg-[#419EFD]">
+              Back to Home Page
+            </button>
+          </Link>
         </div>
       </div>
 

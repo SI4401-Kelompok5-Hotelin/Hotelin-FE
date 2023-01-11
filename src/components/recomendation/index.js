@@ -21,7 +21,7 @@ export default function Rating() {
   //     img: "https://placeimg.com/400/225/arch",
   //   },
   // ];
-  const url = process.env.REACT_APP_API_ENDPOINT + "/hotel";
+  const url = process.env.REACT_APP_API_ENDPOINT + "/hotels";
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function Rating() {
                     <h2 className="card-title">{item.name}</h2>
                     <p>{item.address}</p>
                     <div className="card-actions mt-2">
-                      <Link to="/hotel/1">
+                      <Link to={`/hotel/${item.id}`}>
                         <button className="btn btn-primary">Book Now</button>
                       </Link>
                     </div>

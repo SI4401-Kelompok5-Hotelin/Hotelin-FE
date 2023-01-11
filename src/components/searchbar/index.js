@@ -30,7 +30,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_ENDPOINT + "/hotel")
+      .get(process.env.REACT_APP_API_ENDPOINT + "/hotels")
       .then((res) => {
         setData([...res.data.data]);
         console.log(res.data);
